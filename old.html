@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Brew Haven - Your local coffee shop serving premium coffee drinks" />
+    <meta name="theme-color" content="#2c1810" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>Brew Haven - Premium Coffee Shop</title>
+    <link rel="stylesheet" href="old.css" />
+    <script src="old.js" defer></script>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">Brew Haven</div>
+      <div class="nav-toggle" id="navToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#locations">Locations</a></li>
+        <li><a href="#order">Order Now</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="hero-content">
+          <h1>Welcome to Brew Haven</h1>
+          <p>Where every cup tells a story</p>
+          <a href="#menu" class="cta-button">View Menu</a>
+        </div>
+        <link rel="preload" as="image" href="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1500" />
+      </section>
+
+      <section id="menu" class="menu-section">
+        <h2>Our Signature Drinks</h2>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <h3>Caramel Dream</h3>
+            <p>$4.99</p>
+          </div>
+          <div class="menu-item">
+            <h3>Dark Roast</h3>
+            <p>$3.99</p>
+          </div>
+          <div class="menu-item">
+            <h3>Vanilla Latte</h3>
+            <p>$4.49</p>
+          </div>
+          <div class="menu-item">
+            <h3>Mocha Blast</h3>
+            <p>$5.49</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="locations" class="locations-section">
+        <h2>Find Us</h2>
+        <div class="locations-grid">
+          <div class="location">
+            <h3>Downtown</h3>
+            <p>123 Main St</p>
+            <p>Open 6AM - 8PM</p>
+          </div>
+          <div class="location">
+            <h3>Westside</h3>
+            <p>456 Park Ave</p>
+            <p>Open 7AM - 9PM</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="order" class="order-section">
+        <h2>Order Online</h2>
+        <form id="orderForm" class="order-form">
+          <div class="form-group">
+            <label for="name" class="visually-hidden">Your Name</label>
+            <input type="text" id="name" placeholder="Your Name" required aria-label="Your Name" />
+          </div>
+          <div class="form-group">
+            <label for="email" class="visually-hidden">Your Email</label>
+            <input type="email" id="email" placeholder="Your Email" required aria-label="Your Email" />
+          </div>
+          <div class="form-group">
+            <label for="drink" class="visually-hidden">Select your drink</label>
+            <select id="drink" required aria-label="Select your drink">
+              <option value="">Select your drink</option>
+              <option value="caramel">Caramel Dream</option>
+              <option value="dark">Dark Roast</option>
+              <option value="vanilla">Vanilla Latte</option>
+              <option value="mocha">Mocha Blast</option>
+            </select>
+          </div>
+          <button type="submit" class="submit-button">Place Order</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <p>&copy; 2025 Brew Haven</p>
+        <div class="footer-links">
+          <a href="#about">About Us</a>
+          <a href="#careers">Careers</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
