@@ -2,9 +2,13 @@ import "../styles/Footer.css";
 
 import { useEffect, useState } from "react";
 
+import { useOverlayScrollLock } from "../hooks/useOverlayScrollLock";
+
 export default function Footer() {
   const [modal, setModal] = useState(null);
   const [phase, setPhase] = useState("idle");
+
+  useOverlayScrollLock(modal && phase !== "closing");
 
   const open = (key) => {
     setModal(key);

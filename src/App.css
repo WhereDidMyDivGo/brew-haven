@@ -19,12 +19,15 @@
   flex-direction: column;
 }
 
-body:has(.cart-overlay.open),
-body:has(.footer-modal.open) {
+html.overlay-open.had-scroll {
+  scrollbar-gutter: stable;
+}
+
+body.overlay-locked {
   overflow: hidden;
 }
 
-html:has(.cart-overlay.open),
-html:has(.footer-modal.open) {
-  scrollbar-gutter: stable;
+header,
+footer {
+  padding-inline-end: var(--sw-comp, 0px);
 }

@@ -4,7 +4,8 @@ import "./styles/Animations.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
 
-import ScrollToTop from "./ScrollToTop";
+import ScrollToTop from "./hooks/ScrollToTop";
+import { useStableBars } from "./hooks/useStableBars";
 
 import Header from "./components/Header";
 import Home from "./components/Home";
@@ -15,6 +16,8 @@ import Cart from "./components/Cart";
 import Footer from "./components/Footer";
 
 function App() {
+  useStableBars();
+  
   return (
     <CartProvider>
       <BrowserRouter>

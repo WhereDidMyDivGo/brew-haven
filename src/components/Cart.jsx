@@ -4,11 +4,14 @@ import { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { useCart } from "../context/CartContext";
+import { useOverlayScrollLock } from "../hooks/useOverlayScrollLock";
 
 export default function Cart() {
   const { items, updateQty, removeItem, total, isOpen, closeCart } = useCart();
   const overlayRef = useRef(null);
   const [visible, setVisible] = useState(isOpen);
+
+  useOverlayScrollLock(isOpen);
 
   useEffect(() => {
     function onKey(e) {
