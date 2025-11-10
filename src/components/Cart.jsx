@@ -1,10 +1,11 @@
 import "../styles/Cart.css";
 
 import { useRef, useEffect, useState } from "react";
-import { useCart } from "../context/CartContext";
 import { Link } from "react-router-dom";
 
-export default function CartDrawer() {
+import { useCart } from "../context/CartContext";
+
+export default function Cart() {
   const { items, updateQty, removeItem, total, isOpen, closeCart } = useCart();
   const overlayRef = useRef(null);
   const [visible, setVisible] = useState(isOpen);
@@ -29,14 +30,15 @@ export default function CartDrawer() {
   function handleOverlayClick(e) {
     if (e.target === overlayRef.current) closeCart();
   }
+
   if (!visible) return null;
 
   return (
     <div className={`cart-overlay ${isOpen ? "open" : "closing"}`} ref={overlayRef} onClick={handleOverlayClick} aria-hidden={!isOpen}>
-      <aside className={`cart-drawer ${isOpen ? "slide-in" : "slide-out"}`} role="dialog" aria-modal="true">
+      <aside className={`cart-drawer ${isOpen ? "is-open" : "is-closed"}`} role="dialog" aria-modal="true">
         <div className="cart-header">
           <h4>Your Cart</h4>
-          <button className="cart-close" onClick={closeCart} aria-label="Close cart">
+          <button className="cart-close" onClick={closeCart}>
             ×
           </button>
         </div>
@@ -53,13 +55,13 @@ export default function CartDrawer() {
                     </div>
                   </div>
                   <div className="cart-item-actions">
-                    <button onClick={() => updateQty(it.id, it.qty - 1)} className="small">
+                    <button type="button" className="small" disabled={it.qty <= 1} onClick={() => updateQty(it.id, it.qty - 1)}>
                       -
                     </button>
-                    <button onClick={() => updateQty(it.id, it.qty + 1)} className="small">
+                    <button type="button" className="small" onClick={() => updateQty(it.id, it.qty + 1)}>
                       +
                     </button>
-                    <button onClick={() => removeItem(it.id)} className="small danger">
+                    <button type="button" className="small danger" onClick={() => removeItem(it.id)}>
                       Remove
                     </button>
                   </div>
@@ -76,7 +78,7 @@ export default function CartDrawer() {
             Total: <strong>${total.toFixed(2)}</strong>
           </div>
           <div className="cart-actions">
-            <Link to="/menu" className="btn">
+            <Link to="/menu" className="btn" onClick={closeCart}>
               Continue shopping
             </Link>
             <Link to="/order" className="cta-button" onClick={closeCart}>
